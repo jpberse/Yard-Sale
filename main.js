@@ -7,12 +7,16 @@ const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 const productDetailContainer = document.querySelector('#productDetail');
 const arrowIcon = document.querySelector('.arrow-icon');
-const cardsContainer = document.querySelector('.card-container')
+const cardsContainer = document.querySelector('.card-container');
+const cartCounterSelect = document.querySelector('.cart-counter')
+
+cartCounterSelect.innerText = '0'
 
 navEmail.addEventListener('click', toggleDesktopMenu);
 stripsMenu.addEventListener('click', toggleMobileMenu);
 shoppingCartMenu.addEventListener('click', toggleCartAsideMenu);
 productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+
 
 function toggleDesktopMenu() {
     const isAsideMenuClose = shoppingCartContainer.classList.contains('inactive');
@@ -124,6 +128,7 @@ function renderProducts(arr) {
     
         const productInfoFigure = document.createElement('figure');
         const productImgCart = document.createElement('img');
+        productImgCart.classList.add('add-cart-button');
         productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
     
         productInfoFigure.appendChild(productImgCart);
@@ -139,3 +144,13 @@ function renderProducts(arr) {
 }
 
 renderProducts(productList);
+
+const addCartButton = document.querySelectorAll('.add-cart-button');
+
+addCartButton.forEach((button) => {
+    button.addEventListener('click', function(){
+        console.log('clicked button!');
+    })
+})
+
+
